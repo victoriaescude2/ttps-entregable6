@@ -1,7 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { HomeComponent } from './components/home/home.component';
+import { HomeServiciosComponent } from './components/home-servicios/home-servicios.component';
+import { ListServiciosComponent } from './components/list-servicios/list-servicios.component';
+import { LoginComponent } from './components/login/login.component';
+import { NewServicioComponent } from './components/new-servicio/new-servicio.component';
+import { RegisterComponent } from './components/register/register.component';
+import { BorrarServicioComponent } from './components/borrar-servicio/borrar-servicio.component';
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'edit-user',
+    component: EditUserComponent,
+  },
+  {
+    path: 'home-servicio',
+    component: HomeServiciosComponent,
+  },
+  {
+    path: 'new-servicio',
+    component: NewServicioComponent,
+  },
+  {
+    path: 'list-servicio',
+    component: ListServiciosComponent,
+  },
+  {
+    path: 'borrar-Servicio',
+    component: BorrarServicioComponent,
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
