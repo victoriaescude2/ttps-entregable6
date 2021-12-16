@@ -13,7 +13,7 @@ import { NewServicioComponent } from './components/new-servicio/new-servicio.com
 import { ListServiciosComponent } from './components/list-servicios/list-servicios.component';
 import { BorrarServicioComponent } from './components/borrar-servicio/borrar-servicio.component';
 import { EditServicioComponent } from './components/edit-servicio/edit-servicio.component';
-
+import { UsuarioService } from './service/usuario.service';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { EditServicioComponent } from './components/edit-servicio/edit-servicio.
     ListServiciosComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  //providers: [UsuarioserviceService, FoodtruckService], (Ver para que es esto)
+  providers: [UsuarioService], 
   bootstrap: [AppComponent],
 })
 export class AppModule {}

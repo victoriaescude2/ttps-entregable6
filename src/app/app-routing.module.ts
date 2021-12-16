@@ -11,8 +11,13 @@ import { BorrarServicioComponent } from './components/borrar-servicio/borrar-ser
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: '', 
+    component: LoginComponent 
+  },
+  { 
+    path: 'register', 
+    component: RegisterComponent 
+  },
   {
     path: 'home',
     component: HomeComponent,
