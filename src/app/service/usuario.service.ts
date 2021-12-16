@@ -15,7 +15,6 @@ import { Usuario } from '../model/usuario';
 })
 export class UsuarioService {
   
-  usuario = new Usuario();
   constructor(private http: HttpClient, private router: Router) {}
 
   getUsuario() {
@@ -27,7 +26,6 @@ export class UsuarioService {
       .subscribe(
         (response) => {
           //actualiza los datos
-          this.usuario = response;
           return response;
         },
         (err: HttpErrorResponse) => {
@@ -38,7 +36,7 @@ export class UsuarioService {
   }
 
   recuperarData(): Observable<Usuario> {
-    let id = sessionStorage.getItem('id');
+    let id = 1;
     return this.http
       .get<Usuario>(`http://localhost:8080/ttps-spring/users/${id}`, {
         headers: { token: '1123456' },
@@ -74,27 +72,22 @@ export class UsuarioService {
 
   createServicio(register: NgForm) {
     this.http
-      .post<any>(`http://localhost:8080/ttps-spring/usuario/servicio`, register.value)
+      .post<any>(`http://localhost:8080/ttps-spring/users`, register.value)
       .subscribe((response) => {
         console.log(response);
       });
     this.router.navigateByUrl('home-servicios');
   }
 
-  // editUser(usuario: NgForm): Observable<Usuario> {
-  //   let id = sessionStorage.getItem('id');
-  //   let usu = new Usuario;
-  //   usu.apellido = `${usuario.value.apellido}`;
-  //   usu.nombre = `${usuario.value.nombre}`;
-  //   usu.username = `${usuario.value.username}`;
-  //   usu.password = `${usuario.value.password}`;
-  //   usu.email = `${usuario.value.email}`;
-  //   return this.http.put<Usuario>(
-  //     `${environment.url}/usuario/${id}`,
-  //     usuario.value,
-  //     {
-  //       headers: { token: '1123456' },
-  //     }
-  //   );
+  editUser(usuario: NgForm): Observable<Usuario> {
+    let id = 1;
+    return this.http.put<Usuario>(
+      `${environment.url}/users/${id}`,
+      usuario.value,
+      {
+        headers: { token: '1123456' },
+      }
+    );
+}
 }
 
