@@ -1,0 +1,69 @@
+<div class="row justify-content-md-center">
+ <form #register="ngForm" ngNativeValidate (ngSubmit)="onSubmit(register)" class="text-center border border-light p-5"> 
+  <p class="h4 mb-4">Sign in</p>  
+    <div class="form-group">
+
+        <input
+          type="text"
+          name="nombre"
+          ngModel
+          required
+          placeholder="Ingrese un nombre"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+
+        <input
+          type="text"
+          name="apellido"
+          ngModel
+          required
+          placeholder="Ingrese un apellido"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+
+        <input
+          type="text"
+          name="email"
+          ngModel
+          required
+          placeholder="Ingrese un email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+
+        <input
+          type="text"
+          name="username"
+          ngModel
+          required
+          placeholder="Ingrese un usuario"
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+
+        <input
+          type="password"
+          name="password"
+          ngModel
+          required
+          placeholder="Ingrese un contraseña"
+          class="form-control"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">REGISTRARME</button>
+  
+      <div class="form-group">
+        <br />
+  
+        <a routerLink="/">Ya tenes cuenta? Ingresa clickeando aquí</a>
+      </div>
+    </form>
+  </div>
+  

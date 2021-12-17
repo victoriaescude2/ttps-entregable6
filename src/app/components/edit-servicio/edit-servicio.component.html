@@ -1,0 +1,64 @@
+<div style=" margin-top: 105px;">   
+    <div *ngIf="enviado" class="row justify-content-md-center" style="text-align: center;">
+      <div class="alert alert-success col-md-3" role="alert">
+        ¡Servicio editado con exito!
+      </div>  
+    </div>
+    <div style="justify-content: center; display: flex;">
+      <div class="justify-content-md-center col-md-3">
+        <div>
+          <h1><b>EDITAR SERVICIO</b></h1>
+        </div>
+        <form #edit="ngForm" ngNativeValidate (ngSubmit)="onSubmit(edit)">
+          <div class="form-group">
+            <label for=""><b>Tipo</b></label>
+            <input
+              type="text"
+              name="tipo"
+              ngModel
+              required
+              value="{{tipo}}"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for=""><b>Nombre</b></label>
+            <input type="text" name="nombre" value="{{nombre}}" ngModel required class="form-control" />
+          </div>
+  
+          <div class="form-group">
+            <label for=""><b>Descripcion</b></label>
+            <input
+              type="text"
+              name="descripcion"
+              value="{{descripcion}}"
+              ngModel
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for=""><b>UrlWeb</b></label>
+            <input type="text" name="urlWeb" value="{{urlWeb}}" ngModel required class="form-control" />
+          </div>
+  
+          <div class="form-group">
+            <label for=""><b>Redes</b></label>
+            <input
+              type="text"
+              name="redes"
+              ngModel
+              value="{{redes}}"
+              required
+              class="form-control"
+            />
+          </div>
+  
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
