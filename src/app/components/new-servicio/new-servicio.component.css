@@ -1,0 +1,10 @@
+input{
+    text-align: center;
+  }
+  .form-group{
+    padding: 10px;
+    text-align: center;
+  }
+  form{
+    width: 500px;
+  }

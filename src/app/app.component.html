@@ -1,16 +1,17 @@
 
 
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-
-</div>
-
-<div class="content" role="main">
-</div> 
+<nav class="navbar" >
+      <ul class="nav-ul">
+          <div class="dropdown">
+              <i class="fas fa-user"></i><a class="nav-link-dropdown-toggle" role="button" data-bs-toggle="dropdown">Cuenta</a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" routerLink="/edit-user">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+              </ul>
+          </div>
+          <li class="nav-link"><i class="fas fa-home"></i><a  routerLink="/home"> HOME  </a></li>
+      </ul>
+    
+</nav>
 
 <router-outlet></router-outlet>

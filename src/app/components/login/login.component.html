@@ -1,10 +1,10 @@
-<div style="width: max; height: 100%">
+<!-- <div style="width: max; height: 100%">
   <div style="text-align: center">
-    <div style="display: inline-block">
+    <div style="display: inline-block"> -->
        <!-- <div>
         <img src="../assets/images/logo_app.png" />
       </div>  -->
-      <div>
+      <!-- <div>
         <p
           style="
             position: absolute;
@@ -29,11 +29,11 @@
   </div>
   <br><br>
   <div>
-    <!-- <div *ngIf="error" class="row justify-content-md-center" style="text-align: center;">
+    <div *ngIf="error" class="row justify-content-md-center" style="text-align: center;">
       <div class="alert alert-danger col-md-3" role="alert">
         El username o contraseña no son correctos!
       </div>  
-    </div> -->
+    </div> 
 
     <div class="row justify-content-md-center">
 
@@ -71,4 +71,52 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
+
+<div class="row justify-content-md-center">
+  <form #login="ngForm" ngNativeValidate (ngSubmit)="onSubmit(login)" class="text-center border border-light p-5"> 
+   <p class="h4 mb-4">SISTEMA DE RESERVAS DE SERVICIOS</p>  
+     <div class="form-group">
+         <input
+           type="text"
+           name="email"
+           ngModel
+           required
+           placeholder="Ingrese un email"
+           class="form-control"
+         />
+       </div>
+       <div class="form-group">
+ 
+         <input
+           type="password"
+           name="password"
+           ngModel
+           required
+           placeholder="Ingrese un contraseña"
+           class="form-control"
+         />
+       </div>
+       <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+   
+       <div class="form-group">
+         <br />
+   
+         <a routerLink="/register">¿No tenes cuenta? Registrate ingresando aquí</a>
+       </div>
+     </form>
+   </div>
+   
+ 
+   <style>
+     input{
+       text-align: center;
+     }
+     .form-group{
+       padding: 10px;
+       text-align: center;
+     }
+     form{
+       width: 500px;
+     }
+   </style>

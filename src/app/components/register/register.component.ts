@@ -11,9 +11,6 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 export class RegisterComponent implements OnInit {
   constructor(private usuario: UsuarioService){}
 
-  // usuario: Usuario[] = [{'nombre':'Victoria', 'apellido':'Escudero', 'username':'vescudero','email':'vescudero@gmail.com',
-  // 'password':'vescudero'}];
-
 
   ngOnInit(): void {
   }
@@ -21,7 +18,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(register: NgForm) {
     console.log(register.value);
     if (register.valid) {
-      this.usuario.createServicio(register);
+      this.usuario.createUser(register);
     }
   }
 

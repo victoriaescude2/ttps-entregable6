@@ -23,10 +23,9 @@ export class LoginComponent implements OnInit {
     this.usuario.autenticacion(login).subscribe(
       (usuario) => {
         //almacenamiento en sesion
-        // this.error = false;
-        // sessionStorage.setItem('id', usuario.id);
-        // sessionStorage.setItem('username', usuario.username);
-        this.router.navigateByUrl('home-servicios');
+        sessionStorage.setItem('id', usuario.id);
+        sessionStorage.setItem('username', usuario.username);
+        this.router.navigateByUrl('/home');
 
       },
       (err: HttpErrorResponse) => {

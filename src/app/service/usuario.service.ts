@@ -79,6 +79,15 @@ export class UsuarioService {
     this.router.navigateByUrl('home-servicios');
   }
 
+  createUser(register: NgForm) {
+    this.http
+      .post<any>(`${environment.url}/users`, register.value)
+      .subscribe((response) => {
+        console.log(response);
+      });
+    this.router.navigateByUrl('/home');
+  }
+
   editUser(usuario: NgForm): Observable<Usuario> {
     let id = 1;
     return this.http.put<Usuario>(

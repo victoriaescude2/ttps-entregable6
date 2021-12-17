@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NewServicioComponent } from './components/new-servicio/new-servicio.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BorrarServicioComponent } from './components/borrar-servicio/borrar-servicio.component';
+import { EditServicioComponent } from './components/edit-servicio/edit-servicio.component';
 
 
 const routes: Routes = [
@@ -39,8 +40,12 @@ const routes: Routes = [
     component: ListServiciosComponent,
   },
   {
-    path: 'borrar-Servicio',
+    path: 'borrar-servicio',
     component: BorrarServicioComponent,
+  },
+  {
+    path: 'edit-servicio',
+    component: EditServicioComponent,
   }
 ];
 

@@ -1,7 +1,8 @@
 <div class="row justify-content-md-center">
- <form #register="ngForm" ngNativeValidate (ngSubmit)="onSubmit(register)"> 
-      <div class="form-group">
-        <label for="">Nombre</label>
+ <form #register="ngForm" ngNativeValidate (ngSubmit)="onSubmit(register)" class="text-center border border-light p-5"> 
+  <p class="h4 mb-4">Sign in</p>  
+    <div class="form-group">
+
         <input
           type="text"
           name="nombre"
@@ -12,7 +13,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="">Apellido</label>
+
         <input
           type="text"
           name="apellido"
@@ -23,7 +24,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="">Email</label>
+
         <input
           type="text"
           name="email"
@@ -34,7 +35,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="">Usuario</label>
+
         <input
           type="text"
           name="username"
@@ -46,7 +47,7 @@
       </div>
   
       <div class="form-group">
-        <label for=""> Contraseña</label>
+
         <input
           type="password"
           name="password"
@@ -55,13 +56,6 @@
           placeholder="Ingrese un contraseña"
           class="form-control"
         />
-      </div>
-      <div class="form-group">
-        <label for="">Tipo de usuario</label>
-        <!-- <select name="tipo" class="form-control" ngModel required>
-          <option value="Foodtrucker">Foodtrucker</option>
-          <option value="Organizador">Organizador</option>
-        </select> -->
       </div>
       <button type="submit" class="btn btn-primary">REGISTRARME</button>
   
