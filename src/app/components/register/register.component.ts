@@ -2,23 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
-  constructor(private usuario: UsuarioService){}
+  error: Boolean = false;
+  constructor(private usuario: UsuarioService, private router: Router){}
 
 
   ngOnInit(): void {
+    this.error=false;
   }
 
   onSubmit(register: NgForm) {
-    console.log(register.value);
-    if (register.valid) {
-      this.usuario.createUser(register);
+    console.log(register.value);   
+      let estado= this.usuario.createUser(register);
+    if (estado){
+      this.router.navigateByUrl('/home');
+    }else{
+      this.error=true;
     }
   }
 

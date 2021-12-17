@@ -14,6 +14,7 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root',
 })
 export class UsuarioService {
+  elEstado: boolean = false;
   
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -70,13 +71,18 @@ export class UsuarioService {
     );
   }
 
-  createUser(register: NgForm) {
+  createUser(register: NgForm): boolean {
     this.http
       .post<any>(`${environment.url}/users`, register.value)
       .subscribe((response) => {
         console.log(response);
-      });
-    this.router.navigateByUrl('/home');
+        this.elEstado = true;
+      },
+      (err: HttpErrorResponse) => {
+        console.log('estado de error: ', err.status);
+      }
+      );
+      return this.elEstado;
   }
 
   editUser(usuario: NgForm): Observable<Usuario> {
