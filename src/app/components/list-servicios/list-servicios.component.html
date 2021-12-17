@@ -15,7 +15,8 @@
                     <td class="gestion-style">
                         <div style="text-align: center;">
                                 <a routerLink="/edit-servicio" class="btn btn-warning">Editar</a>                                       
-                                <a routerLink="/borrar-servicio" onclick= "return confirm('Estas seguro que deseas eliminar?')" class="btn btn-danger">Eliminar</a>
+                                <a (click)="deleteServicio(servicio)" class="btn btn-danger">Eliminar</a>
+                                <!-- <a (click)="editarServicio(servicio)") class="btn btn-warning">Editar</a>  -->
                         </div> 
                     </td>
                     </tr>
