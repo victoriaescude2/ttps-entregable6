@@ -70,15 +70,6 @@ export class UsuarioService {
     );
   }
 
-  createServicio(register: NgForm) {
-    this.http
-      .post<any>(`http://localhost:8080/ttps-spring/users`, register.value)
-      .subscribe((response) => {
-        console.log(response);
-      });
-    this.router.navigateByUrl('home-servicios');
-  }
-
   createUser(register: NgForm) {
     this.http
       .post<any>(`${environment.url}/users`, register.value)

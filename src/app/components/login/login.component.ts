@@ -20,11 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(login: NgForm) {
+    
     this.usuario.autenticacion(login).subscribe(
       (usuario) => {
         //almacenamiento en sesion
         sessionStorage.setItem('id', usuario.id);
-        sessionStorage.setItem('username', usuario.username);
+        sessionStorage.setItem('email', usuario.email);
         this.router.navigateByUrl('/home');
 
       },

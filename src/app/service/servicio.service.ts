@@ -50,8 +50,8 @@ export class ServicioService {
   createService(sv: NgForm) {
     this.http.post<any>(`${environment.url}/servs`, sv.value).subscribe((response) => {
       console.log(response);
-    });
-  this.router.navigateByUrl('/home');
+  
+  });
 }
 
 
