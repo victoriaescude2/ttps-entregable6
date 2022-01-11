@@ -16,18 +16,5 @@ export class ListServiciosComponent implements OnInit {
     this.servicioService.getServices().subscribe(servicios=>this.listaServicios=servicios)
   }
 
-  public deleteServicio(serv: any): void{
-
-    this.servicioService.deleteService(serv.id);
-    this.router.navigateByUrl('/edit-user');
-
-  }
-
-  public editServicio(serv: any): void{
-
-
-  }
-
-
 
 }

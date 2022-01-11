@@ -1,0 +1,32 @@
+<div class="table-new" >
+    <div class="columns">
+        <div class="column">
+            <table class = "table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Nombre servicio</th>
+                        <th style="text-align: center;">Descripcion</th>  
+                        <th style="text-align: center;">Url</th>
+                        <th style="text-align: center;">Redes</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let servicio of servicios">
+                    <td style="text-align: center;">{{servicio.nombre}}</td>
+                    <td style="text-align: center;">{{servicio.descripcion}}</td>
+                    <td style="text-align: center;">{{servicio.urlWeb}}</td>
+                    <td style="text-align: center;">{{servicio.redes}}</td>
+                    <td class="gestion-style">
+                        <div style="text-align: center;">
+                            <button (click)="editarServicio(servicio.id)" class="btn btn-warning" routerLink="/edit-servicio" style="margin-right: 5px;">Editar</button>
+                            <button (click)="deleteServicio(servicio.id)" class="btn btn-danger">Eliminar</button>
+                        </div> 
+                    </td>
+                    </tr>
+                </tbody>           
+            </table>
+            
+        </div>
+        <a class="btn btn-primary "style="margin-right: 15px" routerLink="/new-servicio"role="button"id= "btnAddService">Agregar Servicio</a>
+    </div>
+</div>

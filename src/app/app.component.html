@@ -1,19 +1,24 @@
-
-
-<nav class="navbar" >
-    <ul class="nav-ul">
-    <!--       <div class="dropdown">
-              <i class="fas fa-user"></i><a class="nav-link-dropdown-toggle" role="button" data-bs-toggle="dropdown">Cuenta</a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLink="/edit-user">Perfil</a></li>
-                  <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-              </ul>
-          </div> -->
-          
-          <li class="nav-link"><i class="fas fa-home"></i><a  routerLink="/home"> HOME  </a></li>
-          <li class="nav-link"><i class="fas fa-home"></i><a  routerLink="/edit-user"> CUENTA  </a></li>
-      </ul>
-    
-</nav>
-
-<router-outlet></router-outlet>
+<body>
+    <header>
+    <nav class="navbar" >
+        <ul class="nav-ul">
+            <!--*ngIf="isLogin()"-->
+            <div  class="dropdown"> 
+                <i class="fas fa-user"></i><a class="nav-link-dropdown-toggle" role="button" data-bs-toggle="dropdown">Menu</a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/home" class="dropdown-item">Home</a></li>
+                    <li><a routerLink="/edit-user" class="dropdown-item">Perfil</a></li>
+                    <li><a routerLink="/list-mis-servicios" class="dropdown-item">Mis Servicios</a></li>
+                    <li><a (click)="logOut()" class="dropdown-item">Cerrar sesion</a></li>
+                </ul>
+            </div>               
+        </ul>  
+    </nav>
+    </header>
+    <div style="text-align: center">
+    </div>
+    <footer class="footer">
+        <p class="text">Grupo 7  ® .</p>
+    </footer>
+    <router-outlet></router-outlet> 
+</body>

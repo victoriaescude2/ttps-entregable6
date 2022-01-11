@@ -14,6 +14,7 @@ import { ListServiciosComponent } from './components/list-servicios/list-servici
 import { BorrarServicioComponent } from './components/borrar-servicio/borrar-servicio.component';
 import { EditServicioComponent } from './components/edit-servicio/edit-servicio.component';
 import { UsuarioService } from './service/usuario.service';
+import { ListMisServiciosComponent } from './components/list-mis-servicios/list-mis-servicios.component';
 
 
 @NgModule({
@@ -31,10 +32,11 @@ import { UsuarioService } from './service/usuario.service';
     HomeComponent,
     HomeServiciosComponent,
     EditUserComponent,
-    ListServiciosComponent
+    ListServiciosComponent,
+    ListMisServiciosComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UsuarioService], 
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

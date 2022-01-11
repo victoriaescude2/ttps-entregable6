@@ -5,20 +5,17 @@
                 <thead>
                     <tr>
                         <th style="text-align: center;">Nombre servicio</th>
-                        <th style="text-align: center;">Descripcion</th>                      
+                        <th style="text-align: center;">Descripcion</th>
+                        <th style="text-align: center;">Url</th>
+                        <th style="text-align: center;">Redes</th>                      
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let servicio of listaServicios">
                     <td style="text-align: center;">{{servicio.nombre}}</td>
                     <td style="text-align: center;">{{servicio.descripcion}}</td>
-                    <td class="gestion-style">
-                        <div style="text-align: center;">
-                                <a routerLink="/edit-servicio" class="btn btn-warning">Editar</a>                                       
-                                <a (click)="deleteServicio(servicio)" class="btn btn-danger">Eliminar</a>
-                                <!-- <a (click)="editarServicio(servicio)") class="btn btn-warning">Editar</a>  -->
-                        </div> 
-                    </td>
+                    <td style="text-align: center;">{{servicio.urlWeb}}</td>
+                    <td style="text-align: center;">{{servicio.redes}}</td>                
                     </tr>
                 </tbody>
             </table>

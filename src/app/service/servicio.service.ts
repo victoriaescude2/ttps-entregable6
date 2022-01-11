@@ -21,6 +21,10 @@ export class ServicioService {
     return this.http.get<Servicio>(`${environment.url}/servs/${id}`);
   }
 
+  getServiciosPorUser():Observable<Servicio[]>{
+    return this.http.get<Servicio[]>('${environment.url}/servs/'+sessionStorage.getItem('id'))
+  }
+
   public editarServicio(serv: any): void {
 
       
@@ -54,6 +58,7 @@ export class ServicioService {
     window.location.reload();
   }
 
+  
   createService(sv: NgForm) {
     this.http.post<any>(`${environment.url}/servs`, sv.value).subscribe((response) => {
       console.log(response);

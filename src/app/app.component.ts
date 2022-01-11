@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from './service/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Sistema de reserva de Servicios';
+  title = 'Sistema de reserva de servicios';
+  constructor(private usuarioService: UsuarioService){}
+
+  isLogin(){
+    return this.usuarioService.isLogin();
+  }
+
+  logOut(){
+    this.usuarioService.logOut();
+  }
 }

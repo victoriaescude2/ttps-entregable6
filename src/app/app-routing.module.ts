@@ -9,6 +9,7 @@ import { NewServicioComponent } from './components/new-servicio/new-servicio.com
 import { RegisterComponent } from './components/register/register.component';
 import { BorrarServicioComponent } from './components/borrar-servicio/borrar-servicio.component';
 import { EditServicioComponent } from './components/edit-servicio/edit-servicio.component';
+import { ListMisServiciosComponent } from './components/list-mis-servicios/list-mis-servicios.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'list-servicio',
     component: ListServiciosComponent,
+  },
+  {
+    path: 'list-mis-servicios',
+    component: ListMisServiciosComponent,
   },
   {
     path: 'borrar-servicio',

@@ -70,6 +70,17 @@ body{
   color: black;
 }
 
+footer{
+  background-color: beige;
+  height: 30px; 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.8;
+  text-align: center;
+}
+
 .nav-link-dropdown-toggle{
     color: black;
     text-decoration: none;
