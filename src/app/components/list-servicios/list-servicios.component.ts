@@ -9,10 +9,25 @@ import { ServicioService } from 'src/app/service/servicio.service';
 })
 export class ListServiciosComponent implements OnInit {
   listaServicios: Servicio[] = []
+  router: any;
   constructor(private servicioService: ServicioService) { }
 
   ngOnInit(): void {
     this.servicioService.getServices().subscribe(servicios=>this.listaServicios=servicios)
   }
+
+  public deleteServicio(serv: any): void{
+
+    this.servicioService.deleteService(serv.id);
+    this.router.navigateByUrl('/edit-user');
+
+  }
+
+  public editServicio(serv: any): void{
+
+
+  }
+
+
 
 }

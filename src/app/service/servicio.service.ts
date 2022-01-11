@@ -15,9 +15,16 @@ export class ServicioService {
   getServices(): Observable<Servicio[]> {
     return this.http.get<Servicio[]>(`${environment.url}/servs`);
   }
+
   recuperarService(): Observable<Servicio>{
     let id = 1;
     return this.http.get<Servicio>(`${environment.url}/servs/${id}`);
+  }
+
+  public editarServicio(serv: any): void {
+
+      
+
   }
 
 
@@ -32,7 +39,7 @@ export class ServicioService {
     );
   }
 
-  deleteService(id: string): Boolean {
+  deleteService(id: string): void {
     let res = true;
     this.http.delete(`${environment.url}/servs/`+id).subscribe(
       (response) => {
@@ -44,13 +51,13 @@ export class ServicioService {
         console.log('estado de error: ', err.status);
       }
     );
-    return res;
+    window.location.reload();
   }
 
   createService(sv: NgForm) {
     this.http.post<any>(`${environment.url}/servs`, sv.value).subscribe((response) => {
       console.log(response);
-  
+    this.router.navigateByUrl('/home');
   });
 }
 

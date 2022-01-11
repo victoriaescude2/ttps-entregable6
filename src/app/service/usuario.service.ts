@@ -54,9 +54,13 @@ export class UsuarioService {
   }
 
   autenticacion(login: NgForm): Observable<Usuario> {
+    const data = {
+      username: `${login.value.email}`,
+      password: `${login.value.password}`,
+    }
     const headerDict = {
-      usuario: `${login.value.username}`,
-      clave: `${login.value.password}`,
+      username: `${login.value.username}`,
+      password: `${login.value.password}`,
       'Content-Type': 'application/json',
       Accept: 'application/json',
       'Access-Control-Allow-Headers': 'Content-Type',
@@ -65,10 +69,7 @@ export class UsuarioService {
       headers: new HttpHeaders(headerDict),
     };
     return this.http.post<Usuario>(
-      `http://localhost:8080/ttps-spring/users/auth`,
-      '',
-      requestOptions
-    );
+      `http://localhost:8080/ttps-spring/users/auth`,data);
   }
 
   createUser(register: NgForm): boolean {
