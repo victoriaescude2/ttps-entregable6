@@ -50,7 +50,7 @@ export class UsuarioService {
 
   logOut() {
     sessionStorage.clear();
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('/login');
   }
 
   autenticacion(login: NgForm): Observable<Usuario> {

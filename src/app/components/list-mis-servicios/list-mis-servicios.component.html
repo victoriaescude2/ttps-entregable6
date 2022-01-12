@@ -1,3 +1,7 @@
+<div>
+<h4 style="margin: 30px; text-align: center;">MIS SERVICIOS</h4>
+</div>
+
 <div class="table-new" >
     <div class="columns">
         <div class="column">
@@ -7,7 +11,8 @@
                         <th style="text-align: center;">Nombre servicio</th>
                         <th style="text-align: center;">Descripcion</th>  
                         <th style="text-align: center;">Url</th>
-                        <th style="text-align: center;">Redes</th>                    
+                        <th style="text-align: center;">Redes</th>
+                        <th style="text-align: center;">Tipo de Servicio</th>                    
                     </tr>
                 </thead>
                 <tbody>
@@ -16,7 +21,8 @@
                     <td style="text-align: center;">{{servicio.descripcion}}</td>
                     <td style="text-align: center;">{{servicio.urlWeb}}</td>
                     <td style="text-align: center;">{{servicio.redes}}</td>
-                    <td class="gestion-style">
+                    <td style="text-align: center;">{{servicio.tipo.nombre}}</td>
+                    <td >
                         <div style="text-align: center;">
                             <button (click)="editarServicio(servicio.id)" class="btn btn-warning" routerLink="/edit-servicio" style="margin-right: 5px;">Editar</button>
                             <button (click)="deleteServicio(servicio.id)" class="btn btn-danger">Eliminar</button>

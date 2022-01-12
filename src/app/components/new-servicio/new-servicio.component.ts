@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { TipoServicio } from 'src/app/model/tipo-servicio';
 import { ServicioService } from 'src/app/service/servicio.service';
+import { TipoServicioService } from 'src/app/service/tipo-servicio.service';
 
 @Component({
   selector: 'app-new-servicio',
@@ -8,15 +10,17 @@ import { ServicioService } from 'src/app/service/servicio.service';
   styleUrls: ['./new-servicio.component.css']
 })
 export class NewServicioComponent implements OnInit {
-  enviado: Boolean =false;
-  error: Boolean=false;
-  constructor(private servicio: ServicioService) {}
+  tipos: TipoServicio[] = []
+  constructor(private servicioService: ServicioService, private tipoServicioService: TipoServicioService) { }
+
+
 
   ngOnInit(): void {
+    this.tipoServicioService.getTiposDeServicio().subscribe(tipos=>this.tipos=tipos)
   }
 
   // {"dueño":{ "id":1} }
-  onSubmit(sv: NgForm) {
-    let estado= this.servicio.createService(sv);
+  onSubmit(service: NgForm) {
+    this.servicioService.createService(service);
   }
 }

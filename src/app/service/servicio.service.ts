@@ -13,12 +13,11 @@ export class ServicioService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getServices(): Observable<Servicio[]> {
-    return this.http.get<Servicio[]>(`${environment.url}/servs`);
+    return this.http.get<Servicio[]>(`${environment.url}/servs/`);
   }
 
-  recuperarService(): Observable<Servicio>{
-    let id = 1;
-    return this.http.get<Servicio>(`${environment.url}/servs/${id}`);
+  recuperarService(id:string): Observable<Servicio>{
+    return this.http.get<Servicio>(`${environment.url}/servs/`+id);
   }
 
   getServiciosPorUser():Observable<Servicio[]>{
@@ -31,14 +30,25 @@ export class ServicioService {
 
   }
 
-
-  editService(service: NgForm): Observable<Servicio> {
-    let id = 1;
-    return this.http.put<Servicio>(
-      `${environment.url}/servs/${id}`,
-      service.value,
-      {
-        headers: { token: '1123456' },
+  editService(service: NgForm){
+    let servicio = {
+      nombre: service.value.nombre,
+      descripcion: service.value.descripcion,
+      urlWeb: service.value.urlWeb,
+      redes: service.value.redes,
+      tipo: {id:service.value.tipo},
+      // usuario: {id:sessionStorage.getItem('id')},
+    };
+    console.log(servicio)
+    let id = sessionStorage.getItem("serviceSelected")
+    this.http.put<any>(`${environment.url}/servs/`+id , servicio).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigateByUrl('/list-servicio')
+      },
+      (err: HttpErrorResponse) => {
+        console.log('estado de error: ', err.status);
+        this.router.navigateByUrl('/edit-servicio')
       }
     );
   }
@@ -60,11 +70,23 @@ export class ServicioService {
 
   
   createService(sv: NgForm) {
-    this.http.post<any>(`${environment.url}/servs`, sv.value).subscribe((response) => {
+    let servicio = {
+      nombre: sv.value.nombre,
+      descripcion: sv.value.descripcion,
+      urlWeb: sv.value.urlWeb,
+      redes: sv.value.redes,
+      tipo: {id:sv.value.tipo_servicio},
+      // usuario: {id:sessionStorage.getItem('id')},
+    };
+    console.log(servicio.tipo);
+    this.http.post<any>(`${environment.url}/servs`, servicio).subscribe((response) => {
       console.log(response);
-    this.router.navigateByUrl('/home');
-  });
+    this.router.navigateByUrl('/home')
+    },
+    (err: HttpErrorResponse) => {
+      console.log('estado de error: ', err.status);
+      this.router.navigateByUrl('/new-servicio')
+    }
+    );
 }
-
-
 }
