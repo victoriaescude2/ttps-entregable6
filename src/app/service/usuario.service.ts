@@ -38,7 +38,7 @@ export class UsuarioService {
   }
 
   recuperarData(): Observable<Usuario> {
-    let id = 1;
+    let id = sessionStorage.getItem('id');
     return this.http
       .get<Usuario>(`http://localhost:8080/ttps-spring/users/${id}`, {
         headers: { token: '1123456' },
@@ -51,7 +51,7 @@ export class UsuarioService {
 
   logOut() {
     sessionStorage.clear();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/');
   }
 
   autenticacion(login: NgForm){
@@ -87,7 +87,7 @@ export class UsuarioService {
   }
 
   editUser(usuario: NgForm): Observable<Usuario> {
-    let id = 1;
+    let id = sessionStorage.getItem('id');
     return this.http.put<Usuario>(
       `${environment.url}/users/${id}`,
       usuario.value,

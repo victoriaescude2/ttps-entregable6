@@ -21,7 +21,7 @@ export class ServicioService {
   }
 
   getServiciosPorUser():Observable<Servicio[]>{
-    return this.http.get<Servicio[]>('${environment.url}/servs/'+sessionStorage.getItem('id'))
+    return this.http.get<Servicio[]>(`${environment.url}/servs/user/`+sessionStorage.getItem('id'))
   }
 
   public editarServicio(serv: any): void {
@@ -76,7 +76,7 @@ export class ServicioService {
       urlWeb: sv.value.urlWeb,
       redes: sv.value.redes,
       tipo: {id:sv.value.tipo_servicio},
-      // usuario: {id:sessionStorage.getItem('id')},
+      usuario: {id:sessionStorage.getItem('id')},
     };
     console.log(servicio.tipo);
     this.http.post<any>(`${environment.url}/servs`, servicio).subscribe((response) => {

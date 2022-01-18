@@ -15,7 +15,7 @@ export class ListMisServiciosComponent implements OnInit {
   
   ngOnInit(): void {
     // this.servicioService.getServiciosPorUser().subscribe(servicios=>this.servicios=servicios)
-    this,this.servicioService.getServices().subscribe(servicios=>this.servicios=servicios);
+    this,this.servicioService.getServiciosPorUser().subscribe(servicios=>this.servicios=servicios);
   }
 
   editarServicio(servicioId:string){
