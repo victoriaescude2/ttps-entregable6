@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../model/usuario';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -50,26 +51,25 @@ export class UsuarioService {
 
   logOut() {
     sessionStorage.clear();
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('/');
   }
 
-  autenticacion(login: NgForm): Observable<Usuario> {
-    const data = {
-      username: `${login.value.email}`,
+  autenticacion(login: NgForm){
+    const body = {
+      email: `${login.value.email}`,
       password: `${login.value.password}`,
-    }
-    const headerDict = {
-      username: `${login.value.username}`,
-      password: `${login.value.password}`,
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'Access-Control-Allow-Headers': 'Content-Type',
     };
-    const requestOptions = {
-      headers: new HttpHeaders(headerDict),
-    };
-    return this.http.post<Usuario>(
-      `http://localhost:8080/ttps-spring/users/auth`,data);
+    this.http.post<any>('http://localhost:8080/ttps-spring/login',body).subscribe(
+      (response)=> {
+        sessionStorage.setItem('id',response['entity']['id']['chars']);
+        if (response['status'] == 200){
+          console.log(sessionStorage.getItem('id'))
+          this.router.navigateByUrl('home');
+        }
+        else{
+          this.router.navigateByUrl('');
+        }
+      })
   }
 
   createUser(register: NgForm): boolean {

@@ -20,20 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(login: NgForm) {
-    
-    this.usuario.autenticacion(login).subscribe(
-      (usuario) => {
-        //almacenamiento en sesion
-        sessionStorage.setItem('id', usuario.id);
-        sessionStorage.setItem('email', usuario.email);
-        this.router.navigateByUrl('/home');
-
-      },
-      (err: HttpErrorResponse) => {
-        console.log('estado de error: ', err.status, typeof err.status);
-        // this.error = true;
-      }
-    );
+    this.usuario.autenticacion(login)
   }
 
 }
