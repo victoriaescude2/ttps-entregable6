@@ -51,7 +51,11 @@ export class UsuarioService {
 
   logOut() {
     sessionStorage.clear();
+<<<<<<< HEAD
     this.router.navigateByUrl('/');
+=======
+    this.router.navigateByUrl('/login');
+>>>>>>> c24d91146b9b112a6e557652f49c14c8f6344a1f
   }
 
   autenticacion(login: NgForm){

@@ -2,7 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TipoServicio } from 'src/app/model/tipo-servicio';
 import { ServicioService } from 'src/app/service/servicio.service';
+import { TipoServicioService } from 'src/app/service/tipo-servicio.service';
 
 @Component({
   selector: 'app-edit-servicio',
@@ -11,49 +13,36 @@ import { ServicioService } from 'src/app/service/servicio.service';
 })
 export class EditServicioComponent implements OnInit {
   enviado:Boolean = false;
-  tipo: String = "";
-  nombre: String = "";
-  descripcion: String = "";
-  urlWeb: String = "";
-  redes: String = "";
-  constructor(
-    private servicioService: ServicioService,
-    private router: Router
-  ) {}
+  nombre:String="";
+  descripcion:String="";
+  urlWeb:String="";
+  tipo:String="";
+  redes:String="";
+  tipos: TipoServicio[] = []
+  constructor(private servicioService:ServicioService, private tipoServicioService: TipoServicioService, private router:Router) { }
 
   ngOnInit(): void {
+    let id = sessionStorage.getItem("serviceSelected")
     this.enviado=false;
-    this.servicioService.recuperarService()
-    .subscribe(
-      (servicio) => {
-        this.tipo= servicio.tipo;
-        this.nombre= servicio.nombre;
-        this.descripcion= servicio.descripcion;
-        this.urlWeb= servicio.urlWeb;
-        this.redes= servicio.redes;
-      }
-    );
+    if (id != null){
+      this.tipoServicioService.getTiposDeServicio().subscribe((tipos)=>{this.tipos=tipos})
+      this.servicioService.recuperarService(id).subscribe((servicio)=>{
+        this.nombre=servicio.nombre;
+        this.tipo=servicio.tipo;
+        this.descripcion=servicio.descripcion;
+        this.urlWeb=servicio.urlWeb;
+        this.redes=servicio.redes;
+      })
+    };
   }
 
-  onSubmit(servicio: NgForm) {
-    let envio= this.comprobarCampos(servicio);
-
-    this.servicioService.editService(envio).subscribe(
-      () => {
-        console.log(servicio)
-        //actualiza los datos
-        this.enviado=true;
-      },
-      (err: HttpErrorResponse) => {
-        console.log('estado de error: ', err.status, typeof err.status);
-      }
-    );
+  onSubmit(edit: NgForm) {
+    let envio= this.comprobarCampos(edit);
+    this.servicioService.editService(envio);
+    this.router.navigateByUrl('/list-servicio')
   }
 
   comprobarCampos(data: NgForm): NgForm{
-    if (data.value.tipo==""){
-      data.value.tipo= this.tipo;
-    }
     if (data.value.nombre==""){
       data.value.nombre= this.nombre;
     }
@@ -65,6 +54,9 @@ export class EditServicioComponent implements OnInit {
     }
     if (data.value.redes==""){
       data.value.redes= this.redes;
+    }
+    if (data.value.tipo==""){
+      data.value.tipo= this.tipo;
     }
     return data;
   }
