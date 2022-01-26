@@ -5,20 +5,6 @@
     opacity: 1.0;
 }
 
-footer{
-    background-color: var(--background)!important;
-    height: 30px; 
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    opacity: 0.8;
-}
-
-
-body{
-  background-size: cover;
-}
 
 .navbar{
   background-color:beige;
@@ -71,7 +57,7 @@ body{
 }
 
 footer{
-  background-color: beige;
+  background-color:beige;
   height: 30px; 
   position: fixed;
   left: 0;

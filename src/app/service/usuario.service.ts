@@ -61,13 +61,15 @@ export class UsuarioService {
     };
     this.http.post<any>('http://localhost:8080/ttps-spring/login',body).subscribe(
       (response)=> {
-        sessionStorage.setItem('id',response['entity']['id']['chars']);
         if (response['status'] == 200){
+          sessionStorage.setItem('id',response['entity']['id']['chars']);
           console.log(sessionStorage.getItem('id'))
           this.router.navigateByUrl('home');
         }
         else{
+          alert('El usuario i/o contraseña son incorrectos.')
           this.router.navigateByUrl('');
+          
         }
       })
   }

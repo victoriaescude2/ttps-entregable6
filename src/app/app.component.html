@@ -1,24 +1,27 @@
+
 <body>
     <header>
     <nav class="navbar" >
         <ul class="nav-ul">
-            <!--*ngIf="isLogin()"-->
-            <div  class="dropdown"> 
-                <i class="fas fa-user"></i><a class="nav-link-dropdown-toggle" role="button" data-bs-toggle="dropdown">Menu</a>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/home" class="dropdown-item">Home</a></li>
-                    <li><a routerLink="/edit-user" class="dropdown-item">Perfil</a></li>
-                    <li><a routerLink="/list-mis-servicios" class="dropdown-item">Mis Servicios</a></li>
-                    <li><a (click)="logOut()" class="dropdown-item">Cerrar sesion</a></li>
-                </ul>
-            </div>               
+            <div *ngIf="isLogin()">
+                <div  class="dropdown"> 
+                    <i class="fas fa-user"></i><a class="nav-link-dropdown-toggle" role="button" data-bs-toggle="dropdown">Menú</a>
+                    <ul class="dropdown-menu ">
+                        <li><a routerLink="/home" class="dropdown-item">Home</a></li>
+                        <li><a routerLink="/edit-user" class="dropdown-item">Perfil</a></li>
+                        <li><a routerLink="/list-mis-servicios" class="dropdown-item">Mis Servicios</a></li>
+                        <li><a (click)="logOut()" class="dropdown-item">Cerrar sesion</a></li>
+                    </ul>
+                </div>   
+            </div>            
         </ul>  
     </nav>
     </header>
     <div style="text-align: center">
     </div>
     <footer class="footer">
-        <p class="text">Grupo 7  ® .</p>
+        <p class="text-left">Grupo 7  ® <b>Contacto:</b> grupo7@ttps-java.com</p>
     </footer>
     <router-outlet></router-outlet> 
 </body>
+

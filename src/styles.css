@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-image: url(../src/assets/images/foto.jpeg);
+    background-size: cover;
+}
+
+.btn-primary{
+    background-color: rgb(82, 99, 72);
+    border-color: aliceblue;
+}
+
+.btn-primary:hover{
+    background-color: rgb(97, 102, 94);
+    border-color: aliceblue;
+}
