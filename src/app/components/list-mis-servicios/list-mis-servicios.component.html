@@ -1,22 +1,27 @@
 <div>
-<h4 style="margin: 30px; text-align: center;">MIS SERVICIOS</h4>
+<h4 style="margin: 50px; text-align: center; color: white; margin-top: 5%;">MIS SERVICIOS</h4>
 </div>
 
 <div class="table-new" >
     <div class="columns">
         <div class="column">
-            <table class = "table">
+            <table class = "table table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">Nombre servicio</th>
-                        <th style="text-align: center;">Descripcion</th>  
-                        <th style="text-align: center;">Url</th>
-                        <th style="text-align: center;">Redes</th>
-                        <th style="text-align: center;">Tipo de Servicio</th>                    
+                        <th style="text-align: center;">NOMBRE</th>
+                        <th style="text-align: center;">DESCRIPCIÓN</th>  
+                        <th style="text-align: center;">URL</th>
+                        <th style="text-align: center;">REDES</th>
+                        <th style="text-align: center;">TIPO</th>        
+                        <th style="text-align: center;">Tools</th>                     
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let servicio of servicios">
+                    <tr *ngFor = "
+                        let servicio of servicios
+                        | paginate: {itemsPerPage: 2, currentPage: page }
+                    "
+                    >
                     <td style="text-align: center;">{{servicio.nombre}}</td>
                     <td style="text-align: center;">{{servicio.descripcion}}</td>
                     <td style="text-align: center;">{{servicio.urlWeb}}</td>
@@ -36,3 +41,10 @@
         <a class="btn btn-primary "style="margin-left: 45%" routerLink="/new-servicio"role="button"id= "btnAddService">Agregar Servicio</a>
     </div>
 </div>
+
+<pagination-controls 
+    (pageChange)="page = $event" 
+    previousLabel="Anterior" nextLabel="Siguiente">
+</pagination-controls>
+
+

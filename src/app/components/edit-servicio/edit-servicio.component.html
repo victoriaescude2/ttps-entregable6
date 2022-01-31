@@ -5,11 +5,9 @@
       </div>  
     </div>
     <div style="justify-content: center; display: flex;">
-      <div class="justify-content-md-center col-md-3">
-        <div>
-          <h1><b>EDITAR SERVICIO</b></h1>
-        </div>
-        <form #edit="ngForm" (ngSubmit)="onSubmit(edit)">
+      <div class="row justify-content-md-center">
+        <form #edit="ngForm" (ngSubmit)="onSubmit(edit)" class="text-center p-5">
+          <p style="color: rgb(255, 255, 255); font-size: 30px; margin-top: -18%;">EDITAR SERVICIO</p>
           <div class="form-group">
             <label for=""><b>Nombre</b></label>
             <input type="text" name="nombre" value="{{nombre}}" ngModel required class="form-control" />

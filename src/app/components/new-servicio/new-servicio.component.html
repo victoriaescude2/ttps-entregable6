@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
-    <form #newService="ngForm" ngNativeValidate (ngSubmit)="onSubmit(newService)" class="text-center border border-light p-5"> 
-     <p class="h4 mb-4">ALTA DE SERVICIO</p>  
+    <form #newService="ngForm" ngNativeValidate (ngSubmit)="onSubmit(newService)" class="text-center p-5"> 
+     <p class="h4 mb-4 " style="color: rgb(255, 255, 255); font-size: 35px; margin-top: 10%;">ALTA DE SERVICIO</p>  
       <div class="form-group">
         <label for=""><b>Nombre</b></label>
         <input type="text" name="nombre" placeholder="Ingrese el nombre del servicio" ngModel required class="form-control" />
@@ -18,7 +18,7 @@
         />
       </div>
       <div class="form-group">
-        <label for=""><b>UrlWeb</b></label>
+        <label for=""><b>Url Web</b></label>
         <input type="text" name="urlWeb" placeholder="Ingrese la URL del servicio" ngModel required class="form-control" />
       </div>
 

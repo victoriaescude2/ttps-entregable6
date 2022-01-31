@@ -11,6 +11,7 @@ import { ServicioService } from 'src/app/service/servicio.service';
 
 export class ListMisServiciosComponent implements OnInit {
   servicios: Servicio[] = []
+  public page: number = 1;
   constructor(private servicioService: ServicioService, private router:Router) { }
   
   ngOnInit(): void {

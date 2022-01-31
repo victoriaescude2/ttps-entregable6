@@ -16,7 +16,7 @@ import { Usuario } from '../model/usuario';
 })
 export class UsuarioService {
   elEstado: boolean = false;
-  
+  login: boolean = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   getUsuario() {
@@ -64,28 +64,29 @@ export class UsuarioService {
         if (response['status'] == 200){
           sessionStorage.setItem('id',response['entity']['id']['chars']);
           console.log(sessionStorage.getItem('id'))
+          this.login = true;
           this.router.navigateByUrl('home');
         }
         else{
-          alert('El usuario i/o contraseña son incorrectos.')
+          alert('USUARIO O CONTRASEÑA INCORRECTOS.')
           this.router.navigateByUrl('');
           
         }
       })
   }
 
-  createUser(register: NgForm): boolean {
+  createUser(register: NgForm){
     this.http
       .post<any>(`${environment.url}/users`, register.value)
       .subscribe((response) => {
-        console.log(response);
-        this.elEstado = true;
+         this.router.navigateByUrl('');
+         alert('USUARIO CREADO EXITOSAMENTE.')
       },
       (err: HttpErrorResponse) => {
+        alert('EL EMAIL INGRESADO NO ES VALIDO O YA EXISTE.')
         console.log('estado de error: ', err.status);
       }
       );
-      return this.elEstado;
   }
 
   editUser(usuario: NgForm): Observable<Usuario> {

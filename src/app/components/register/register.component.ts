@@ -20,13 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(register: NgForm) {
-    console.log(register.value);   
-      let estado= this.usuario.createUser(register);
-    if (estado){
-      this.router.navigateByUrl('/home');
-    }else{
-      this.error=true;
-    }
+      this.usuario.createUser(register);
   }
 
 }

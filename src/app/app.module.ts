@@ -15,6 +15,7 @@ import { BorrarServicioComponent } from './components/borrar-servicio/borrar-ser
 import { EditServicioComponent } from './components/edit-servicio/edit-servicio.component';
 import { UsuarioService } from './service/usuario.service';
 import { ListMisServiciosComponent } from './components/list-mis-servicios/list-mis-servicios.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { ListMisServiciosComponent } from './components/list-mis-servicios/list-
     ListServiciosComponent,
     ListMisServiciosComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, NgxPaginationModule],
   providers: [UsuarioService], 
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,7 @@ import { ServicioService } from 'src/app/service/servicio.service';
 })
 export class ListServiciosComponent implements OnInit {
   listaServicios: Servicio[] = []
+  public page: number = 1;
   router: any;
   constructor(private servicioService: ServicioService) { }
 
