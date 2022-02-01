@@ -18,6 +18,7 @@ export class UsuarioService {
   elEstado: boolean = false;
   login: boolean = false;
   in: boolean = false;
+  fallo: boolean = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   getUsuario() {
@@ -76,21 +77,20 @@ export class UsuarioService {
       return this.in
   }
 
-  createUser(register: NgForm){
+  createUser(register: NgForm): boolean{
     this.http
       .post<any>(`${environment.url}/users`, register.value)
       .subscribe((response) => {
+        this.fallo = true;
          console.log("Response: "+response)
-        //  sessionStorage.setItem('id',response['entity']['id']['chars']);
-        //  console.log("ID: " + sessionStorage.getItem('id'))
          this.router.navigateByUrl('');
          alert('USUARIO CREADO EXITOSAMENTE.')
       },
       (err: HttpErrorResponse) => {
-        alert('EL EMAIL INGRESADO YA EXISTE.')
         console.log('estado de error: ', err.status);
       }
       );
+      return this.fallo
   }
 
   editUser(usuario: NgForm): Observable<Usuario> {
