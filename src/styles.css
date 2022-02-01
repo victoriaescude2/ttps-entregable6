@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
-    background-image: url(../src/assets/images/foto.jpeg);
+    background-image: url(../src/assets/images/foto.jpeg), repeating-radial-gradient(red, yellow 10%, green 20%);
     background-size: cover;
 }
 

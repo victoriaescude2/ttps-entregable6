@@ -10,7 +10,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  enviado:Boolean = false;
   constructor(
     private usuario: UsuarioService,
     private router: Router
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(login: NgForm) {
-    this.usuario.autenticacion(login)
+      this.enviado = !this.usuario.autenticacion(login)
   }
 
 }

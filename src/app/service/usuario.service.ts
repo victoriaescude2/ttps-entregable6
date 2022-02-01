@@ -17,6 +17,7 @@ import { Usuario } from '../model/usuario';
 export class UsuarioService {
   elEstado: boolean = false;
   login: boolean = false;
+  in: boolean = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   getUsuario() {
@@ -54,36 +55,39 @@ export class UsuarioService {
     this.router.navigateByUrl('/');
   }
 
-  autenticacion(login: NgForm){
+  autenticacion(login: NgForm): boolean{
     const body = {
       email: `${login.value.email}`,
       password: `${login.value.password}`,
     };
     this.http.post<any>('http://localhost:8080/ttps-spring/login',body).subscribe(
       (response)=> {
+        this.in = true
         if (response['status'] == 200){
           sessionStorage.setItem('id',response['entity']['id']['chars']);
-          console.log(sessionStorage.getItem('id'))
           this.login = true;
-          this.router.navigateByUrl('home');
+          this.router.navigateByUrl('home');          
         }
-        else{
-          alert('USUARIO O CONTRASEÑA INCORRECTOS.')
-          this.router.navigateByUrl('');
-          
-        }
-      })
+      },
+        (err: HttpErrorResponse) => {
+          console.log('estado de error: ', err.status);
+          this.router.navigateByUrl('')    
+      });
+      return this.in
   }
 
   createUser(register: NgForm){
     this.http
       .post<any>(`${environment.url}/users`, register.value)
       .subscribe((response) => {
+         console.log("Response: "+response)
+        //  sessionStorage.setItem('id',response['entity']['id']['chars']);
+        //  console.log("ID: " + sessionStorage.getItem('id'))
          this.router.navigateByUrl('');
          alert('USUARIO CREADO EXITOSAMENTE.')
       },
       (err: HttpErrorResponse) => {
-        alert('EL EMAIL INGRESADO NO ES VALIDO O YA EXISTE.')
+        alert('EL EMAIL INGRESADO YA EXISTE.')
         console.log('estado de error: ', err.status);
       }
       );

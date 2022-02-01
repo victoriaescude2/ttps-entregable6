@@ -1,5 +1,5 @@
 <div>
-<h4 style="margin: 50px; text-align: center; color: white; margin-top: 5%;">MIS SERVICIOS</h4>
+<h4 style="margin: 50px; text-align: center; color: white; margin-top: 5%; font-size: 30px;">MIS SERVICIOS</h4>
 </div>
 
 <div class="table-new" >
@@ -19,7 +19,7 @@
                 <tbody>
                     <tr *ngFor = "
                         let servicio of servicios
-                        | paginate: {itemsPerPage: 2, currentPage: page }
+                        | paginate: {itemsPerPage: 3, currentPage: page }
                     "
                     >
                     <td style="text-align: center;">{{servicio.nombre}}</td>

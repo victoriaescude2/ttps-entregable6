@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
   <form #login="ngForm" ngNativeValidate (ngSubmit)="onSubmit(login)" class="text-center p-5"> 
-   <p class="h4 mb-4" style="color: rgb(255, 255, 255); font-size: 38px; margin-top: 22%;">SISTEMA DE RESERVA DE SERVICIOS</p>  
+   <p class="h4 mb-4" style="color: rgb(255, 255, 255); font-size: 38px; margin-top: 20%;">SISTEMA DE RESERVA DE SERVICIOS</p>  
      <div class="form-group">
          <input
            type="text"
@@ -25,13 +25,16 @@
        <button type="submit" class="btn btn-primary">Iniciar sesion</button>
    
        <div class="form-group">
-         <br />
-   
-         <a routerLink="/register">¿No tenes cuenta? Registrate ingresando aquí</a>
+         <br/>
+         <a class= "form-link" routerLink="/register">¿No tenes cuenta? Registrate ingresando aquí</a>
        </div>
      </form>
    </div>
-   
+   <div *ngIf="enviado" class="row justify-content-md-center" style="text-align: center;">
+    <div class="alert alert-danger col-md-3" role="alert">
+      ¡Email o usuario incorrecto!
+    </div>  
+  </div>
  
    <style>
      input{

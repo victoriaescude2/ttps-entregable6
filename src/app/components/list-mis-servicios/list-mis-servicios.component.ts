@@ -25,9 +25,7 @@ export class ListMisServiciosComponent implements OnInit {
   }
 
   deleteServicio(servicioId: string){
-    console.log("entro", servicioId)
     this.servicioService.deleteService(servicioId)
-    console.log ("eliminado")
   }
 
 }

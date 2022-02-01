@@ -13,7 +13,6 @@ export class EditUserComponent implements OnInit {
   enviado:Boolean = false;
   nombre: String = "";
   apellido: String = "";
-  username: String = "";
   password: String = "";
   email: String = "";
   constructor(
@@ -28,7 +27,6 @@ export class EditUserComponent implements OnInit {
       (usuario) => {
         this.apellido= usuario.apellido;
         this.nombre= usuario.nombre;
-        this.username= usuario.username;
         this.password= usuario.password;
         this.email= usuario.email;
       }
@@ -55,9 +53,6 @@ export class EditUserComponent implements OnInit {
     }
     if (data.value.nombre==""){
       data.value.nombre= this.nombre;
-    }
-    if (data.value.username==""){
-      data.value.username= this.username;
     }
     if (data.value.password==""){
       data.value.password= this.password;

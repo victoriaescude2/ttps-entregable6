@@ -7,7 +7,7 @@
     <div style="justify-content: center; display: flex;">
       <div class="row justify-content-md-center">
         <form #edit="ngForm" (ngSubmit)="onSubmit(edit)" class="text-center p-5">
-          <p style="color: rgb(255, 255, 255); font-size: 30px; margin-top: -18%;">EDITAR SERVICIO</p>
+          <h4 style="color: rgb(255, 255, 255); font-size: 30px; margin-top: -18%;">EDITAR SERVICIO</h4>
           <div class="form-group">
             <label for=""><b>Nombre</b></label>
             <input type="text" name="nombre" value="{{nombre}}" ngModel required class="form-control" />
@@ -25,7 +25,7 @@
             />
           </div>
           <div class="form-group">
-            <label for=""><b>UrlWeb</b></label>
+            <label for=""><b>Url Web</b></label>
             <input type="text" name="urlWeb" value="{{urlWeb}}" ngModel required class="form-control" />
           </div>
   

@@ -4,6 +4,7 @@ input{
   .form-group{
     padding: 10px;
     text-align: center;
+    color: white;
   }
   form{
     width: 500px;
