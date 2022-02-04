@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { NgForm,Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(register: NgForm) {  
-      this.fallo = this.usuario.createUser(register);
+    this.usuario.createUser(register).subscribe(
+      () => {
+        this.fallo=false;
+        this.router.navigateByUrl('');
+      },
+      (err: HttpErrorResponse) => {
+        this.fallo = true;
+        console.log('estado de error: ', err.status, typeof err.status);
+      }
+    );
   }
 
 

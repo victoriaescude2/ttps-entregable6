@@ -78,20 +78,14 @@ export class UsuarioService {
       return this.in
   }
 
-  createUser(register: NgForm): boolean{
-    this.http
-      .post<any>(`${environment.url}/users`, register.value)
-      .subscribe((response) => {
-        this.fallo = true;
-         console.log("Response: "+response)
-         this.router.navigateByUrl('');
-         alert('USUARIO CREADO EXITOSAMENTE.')
-      },
-      (err: HttpErrorResponse) => {
-        console.log('estado de error: ', err.status);
+  createUser(register: NgForm): Observable<Usuario>{
+    return this.http
+      .post<any>(`${environment.url}/users`, register.value,
+      {
+        headers: { token: '1123456' },
       }
       );
-      return this.fallo
+      
   }
 
   editUser(usuario: NgForm): Observable<Usuario> {

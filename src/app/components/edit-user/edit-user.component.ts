@@ -11,6 +11,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class EditUserComponent implements OnInit {
   enviado:Boolean = false;
+  fallo:Boolean = false;
   nombre: String = "";
   apellido: String = "";
   password: String = "";
@@ -40,8 +41,10 @@ export class EditUserComponent implements OnInit {
       () => {
         //actualiza los datos
         this.enviado=true;
+        console.log("entra")
       },
       (err: HttpErrorResponse) => {
+        this.fallo = true;
         console.log('estado de error: ', err.status, typeof err.status);
       }
     );
