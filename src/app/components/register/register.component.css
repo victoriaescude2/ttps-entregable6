@@ -12,3 +12,8 @@ input{
   .form-link{
     color: white;
   }
+  .form-group{
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
