@@ -36,15 +36,16 @@
                     </tr>
                 </tbody>           
             </table>
-            
-        </div>
+            <div class="clearfix">
+                <pagination-controls 
+                    (pageChange)="page = $event" 
+                    previousLabel="Anterior" nextLabel="Siguiente">
+                </pagination-controls>
+                </div>    
+        </div>      
         <a class="btn btn-primary "style="margin-left: 45%" routerLink="/new-servicio"role="button"id= "btnAddService">Agregar Servicio</a>
     </div>
 </div>
 
-<pagination-controls 
-    (pageChange)="page = $event" 
-    previousLabel="Anterior" nextLabel="Siguiente">
-</pagination-controls>
 
 
