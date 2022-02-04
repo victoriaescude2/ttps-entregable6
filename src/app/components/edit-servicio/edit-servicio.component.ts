@@ -49,7 +49,7 @@ export class EditServicioComponent implements OnInit {
     if (data.value.descripcion==""){
       data.value.descripcion= this.descripcion;
     }
-    if (data.value.url==""){
+    if (data.value.urlWeb==""){
       data.value.urlWeb= this.urlWeb;
     }
     if (data.value.redes==""){
