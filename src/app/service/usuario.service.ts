@@ -19,6 +19,7 @@ export class UsuarioService {
   login: boolean = false;
   in: boolean = false;
   fallo: boolean = false;
+  creado: boolean = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   getUsuario() {

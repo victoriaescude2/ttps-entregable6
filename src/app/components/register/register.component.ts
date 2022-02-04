@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   error: Boolean = false;
   fallo: boolean = false;
+  creado: boolean = false;
   constructor(private usuario: UsuarioService, private router: Router){}
 
 
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(register: NgForm) {
       this.fallo = !this.usuario.createUser(register);
+      this.creado = !this.fallo;
       console.log(this.fallo)
   }
 

@@ -19,7 +19,6 @@ export class NewServicioComponent implements OnInit {
     this.tipoServicioService.getTiposDeServicio().subscribe(tipos=>this.tipos=tipos)
   }
 
-  // {"dueño":{ "id":1} }
   onSubmit(service: NgForm) {
     this.servicioService.createService(service);
   }

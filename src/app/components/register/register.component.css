@@ -8,3 +8,7 @@ input{
   form{
     width: 500px;
   }
+
+  .form-link{
+    color: white;
+  }

@@ -39,7 +39,7 @@ export class EditServicioComponent implements OnInit {
   onSubmit(edit: NgForm) {
     let envio= this.comprobarCampos(edit);
     this.servicioService.editService(envio);
-    this.router.navigateByUrl('/list-servicio')
+    this.router.navigateByUrl('/list-mis-servicios')
   }
 
   comprobarCampos(data: NgForm): NgForm{

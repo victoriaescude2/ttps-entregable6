@@ -37,14 +37,14 @@ export class ServicioService {
       urlWeb: service.value.urlWeb,
       redes: service.value.redes,
       tipo: {id:service.value.tipo},
-      // usuario: {id:sessionStorage.getItem('id')},
+      usuario: {id:sessionStorage.getItem('id')},
     };
     console.log(servicio)
     let id = sessionStorage.getItem("serviceSelected")
     this.http.put<any>(`${environment.url}/servs/`+id , servicio).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigateByUrl('/list-servicio')
+        this.router.navigateByUrl('/list-mis-servicios')
       },
       (err: HttpErrorResponse) => {
         console.log('estado de error: ', err.status);
