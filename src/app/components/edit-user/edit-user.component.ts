@@ -44,6 +44,7 @@ export class EditUserComponent implements OnInit {
         this.fallo = false;
       },
       (err: HttpErrorResponse) => {
+        this.fallo = true;
         console.log('estado de error: ', err.status, typeof err.status);
         this.fallo = true;
         this.enviado = false;
