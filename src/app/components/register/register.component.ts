@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
-import { NgForm } from '@angular/forms';
+import { NgForm,Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { Router } from '@angular/router';
 
@@ -11,20 +11,17 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent implements OnInit {
-  error: Boolean = false;
   fallo: boolean = false;
-  creado: boolean = false;
   constructor(private usuario: UsuarioService, private router: Router){}
 
 
   ngOnInit(): void {
-    this.error=false;
   }
 
-  onSubmit(register: NgForm) {
-      this.fallo = !this.usuario.createUser(register);
-      this.creado = !this.fallo;
-      console.log(this.fallo)
+  onSubmit(register: NgForm) {  
+      this.fallo = this.usuario.createUser(register);
   }
+
+
 
 }

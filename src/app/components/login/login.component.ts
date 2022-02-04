@@ -17,10 +17,12 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(login: NgForm) {
-      this.enviado = !this.usuario.autenticacion(login)
+    console.log(this.enviado)
+      this.enviado = this.usuario.autenticacion(login)
   }
 
 }
